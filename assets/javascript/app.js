@@ -85,19 +85,33 @@ $(document).ready(function(){
 
 				 if (questionNo === gameQuestions.length)
 					{
-						console.log("Hello just testing!");
-
+						clearInterval(showTime);
 						$(".game").hide();
-		    			$(".restart").show();
+				    	$(".restart").show();
+				    	
+				
 
-		// All variables are reset including the time shown.
+			// When user clicks the restart button the game starts again.
 
+						$(".restart").on("click", function()
+
+						{
+
+					    $(".game" ).show();
+					    $(".start").hide();
+					    $(".restart").hide();
+					    $(".correct-answers-div").html("Correct Answers: ");
+				  		$(".incorrect-answers-div").html("Incorrect Answers: ");
+				  		
 				  		clearInterval(showTime);
+					    showTime = setInterval(questionTimer, 1000);
 				    	answer = "";
 						correct = 0;
 						incorrect = 0;
 						startTime = 30;
 						questionNo = 0;
+
+					});
 
 
 					}
